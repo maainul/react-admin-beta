@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
-
 import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
@@ -16,6 +15,7 @@ import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+import { Link } from "react-router-dom";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -30,6 +30,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
       icon={icon}
     >
       <Typography>{title}</Typography>
+      <Link to={to} />
     </MenuItem>
   );
 };
@@ -84,37 +85,37 @@ export const ProjectSidebar = () => {
               </Box>
             )}
           </MenuItem>
-          {!isCollapsed &&  (
-          <Box mb="25px">
-            <Box display="flex" justifyContent="center" alignItems="center">
-              <img
-                alt="profile-user"
-                src={`../../assets/user.png`}
-                width="100px"
-                height="100px"
-                style={{ cursor: "pointer", borderRadius: "50%" }}
-              />
+          {!isCollapsed && (
+            <Box mb="25px">
+              <Box display="flex" justifyContent="center" alignItems="center">
+                <img
+                  alt="profile-user"
+                  src={`../../assets/user.png`}
+                  width="100px"
+                  height="100px"
+                  style={{ cursor: "pointer", borderRadius: "50%" }}
+                />
+              </Box>
+
+              <Box textAlign="center">
+                <Typography
+                  variant="h6"
+                  color={colors.grey[100]}
+                  fontWeight="bold"
+                  sx={{ m: "10px 0 0 0" }}
+                >
+                  Ed Hoks
+                </Typography>
+                <Typography
+                  variant="p"
+                  fontSize="14px"
+                  color={colors.greenAccent[500]}
+                >
+                  VP Fancy Admin{" "}
+                </Typography>
+              </Box>
             </Box>
-         
-         <Box textAlign="center">
-              <Typography
-                variant="h6"
-                color={colors.grey[100]}
-                fontWeight="bold"
-                sx={{ m: "10px 0 0 0" }}
-              >
-                Ed Hoks
-              </Typography>
-              <Typography
-                variant="p"
-                fontSize="14px"
-                color={colors.greenAccent[500]}
-              >
-                VP Fancy Admin{" "}
-              </Typography>
-            </Box>
-          </Box>
-         )}
+          )}
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
               title="Dashboard"

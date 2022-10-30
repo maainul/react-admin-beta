@@ -10,3 +10,10 @@
 
 
 # Add some components and Side bar
+
+
+'react-scripts' is not recognized as an internal or external command,
+operable program or batch file.
+
+        npm install react-scripts --save
+
